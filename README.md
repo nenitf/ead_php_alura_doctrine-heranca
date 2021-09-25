@@ -2,7 +2,9 @@
 
 > Projeto referente a [este](https://cursos.alura.com.br/course/php-doctrine-indices-heranca-sql-nativo) curso.
 
-> Acesse `localhost:8989/teste.php` e depois `localhost:8989`
+> [Herança no Doctrine](https://www.doctrine-project.org/projects/doctrine-orm/en/2.9/reference/inheritance-mapping.html)
+
+
 
 1. Crie os containers
 ```sh

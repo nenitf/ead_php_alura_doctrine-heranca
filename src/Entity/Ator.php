@@ -1,26 +1,17 @@
 <?php
 
 namespace Alura\Doctrine\Entity;
-
 use Doctrine\Common\Collections\ArrayCollection;
 
-class Ator
+class Ator extends Pessoa
 {
-    private $id;
-    private $primeiroNome;
-    private $ultimoNome;
-    private $ultimaAtualizacao;
     private $filmes;
-
     public function __construct(
         ?int $id,
         string $primeiroNome,
         string $ultimoNome
     ) {
-        $this->id = $id;
-        $this->primeiroNome = $primeiroNome;
-        $this->ultimoNome = $ultimoNome;
-        $this->ultimaAtualizacao = new \DateTimeImmutable();
+        parent::__construct($id, $primeiroNome, $ultimoNome);
         $this->filmes = new ArrayCollection();
     }
 
@@ -29,13 +20,12 @@ class Ator
         if ($this->filmes->contains($filme)) {
             return;
         }
-
         $this->filmes->add($filme);
         $filme->addAtor($this);
     }
 
-    public function getNome(): string
+    public function quantidadeFilmes(): int
     {
-        return $this->primeiroNome . ' ' . $this->ultimoNome;
+        return $this->filmes->count();
     }
 }
