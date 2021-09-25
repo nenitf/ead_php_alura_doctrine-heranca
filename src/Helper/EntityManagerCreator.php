@@ -21,6 +21,13 @@ class EntityManagerCreator
             'password' => '123',
         ];
 
+        $em->getConnection()
+           ->getDatabasePlatform()
+           ->registerDoctrineTypeMapping(
+               'CLASSIFICACAO',
+               'classificacao'
+           );
+
         return EntityManager::create($con, $config);
     }
 }
